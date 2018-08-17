@@ -1,0 +1,107 @@
+{
+  "project_info": {
+    "project_number": "768322174091",
+    "firebase_url": "https://dhamma-ad8ae.firebaseio.com",
+    "project_id": "dhamma-ad8ae",
+    "storage_bucket": "dhamma-ad8ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768322174091:android:23980403ba42c987",
+        "android_client_info": {
+          "package_name": "invenz.example.bijohn.dhamma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768322174091-dfnf7v544d9e3foo597pjr0nc4c43hnm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "invenz.example.bijohn.dhamma",
+            "certificate_hash": "917fb1ca5d9054fdfe408e3d2810f894868fdde1"
+          }
+        },
+        {
+          "client_id": "768322174091-tec7bua5nm9b5vmag79voi3ouqvvpf9l.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "768322174091-tec7bua5nm9b5vmag79voi3ouqvvpf9l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeWFjbnxicsUop4Wo3dskJyujNp9d-Atg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768322174091-tec7bua5nm9b5vmag79voi3ouqvvpf9l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768322174091:android:de5d25754e570830",
+        "android_client_info": {
+          "package_name": "invenz.example.bijohn.dhammaadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768322174091-038uplke47cr8eup731p8tclu2atpdun.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "invenz.example.bijohn.dhammaadmin",
+            "certificate_hash": "917fb1ca5d9054fdfe408e3d2810f894868fdde1"
+          }
+        },
+        {
+          "client_id": "768322174091-tec7bua5nm9b5vmag79voi3ouqvvpf9l.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "768322174091-tec7bua5nm9b5vmag79voi3ouqvvpf9l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeWFjbnxicsUop4Wo3dskJyujNp9d-Atg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768322174091-tec7bua5nm9b5vmag79voi3ouqvvpf9l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
