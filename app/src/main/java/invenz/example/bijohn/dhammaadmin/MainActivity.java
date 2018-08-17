@@ -1,5 +1,6 @@
 package invenz.example.bijohn.dhammaadmin;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     //private static final String SEND_NOTIFICATION_URL = "http://192.168.43.166/dhamma/SendNotification.php";
     private static final String SEND_NOTIFICATION_URL = "http://invenz-it.com/dhamma/SendNotification.php";
     private static final String TAG = "ROY" ;
+    private ProgressDialog progressDialog;
 
     private Spinner spDate, spMonth, spYear, spHour, spMin, spAmPm;
     private EditText etEvent, etNotificationTitle, etNotificationMessage;
@@ -72,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
         etNotificationTitle = findViewById(R.id.idNotificationTitle);
         etNotificationMessage = findViewById(R.id.idNotificationMessage);
         btSendNotification = findViewById(R.id.idNotification_mainAct);
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMessage("please Wait");
+        progressDialog.setCancelable(false);
 
         spHour = findViewById(R.id.idHour);
         spMin = findViewById(R.id.idMinute);
@@ -324,16 +329,20 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Please give title and message for notification", Toast.LENGTH_SHORT).show();
                 }else {
 
-                    StringRequest stringRequest = new StringRequest(StringRequest.Method.POST, SEND_NOTIFICATION_URL,
+                    progressDialog.show();
+                    //Toast.makeText(MainActivity.this, sTitle+", "+sMessage, Toast.LENGTH_SHORT).show();
+                    StringRequest stringRequest = new StringRequest(StringRequest.Method.POST, "http://invenz-it.com/dhamma/SendNotification.php",
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
 
                                     try {
+
+                                        progressDialog.dismiss();
                                         JSONObject jsonObject = new JSONObject(response);
-                                        //String serverMessage = jsonObject.getString("message");
-                                        //Toast.makeText(MainActivity.this, ""+serverMessage, Toast.LENGTH_SHORT).show();
-                                        Toast.makeText(MainActivity.this, "ok", Toast.LENGTH_SHORT).show();
+                                        String serverMessage = jsonObject.getString("message");
+                                        Toast.makeText(MainActivity.this, ""+serverMessage, Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(MainActivity.this, "ok", Toast.LENGTH_SHORT).show();
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
@@ -343,7 +352,11 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             Log.d(TAG, "onErrorResponse: "+error);
+                            Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
                             error.getStackTrace();
+
+                            progressDialog.dismiss();
+                            Toast.makeText(MainActivity.this, "failed: "+error, Toast.LENGTH_LONG).show();
                         }
                     }){
                         @Override
