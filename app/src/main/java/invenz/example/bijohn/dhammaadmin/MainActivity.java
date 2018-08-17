@@ -13,11 +13,21 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,9 +36,13 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    //private static final String SEND_NOTIFICATION_URL = "http://192.168.43.166/dhamma/SendNotification.php";
+    private static final String SEND_NOTIFICATION_URL = "http://invenz-it.com/dhamma/SendNotification.php";
+    private static final String TAG = "ROY" ;
+
     private Spinner spDate, spMonth, spYear, spHour, spMin, spAmPm;
-    private EditText etEvent;
-    private Button btAddEvent, btSetTimer, btShowAllEvents;
+    private EditText etEvent, etNotificationTitle, etNotificationMessage;
+    private Button btAddEvent, btSetTimer, btShowAllEvents, btSendNotification;
 
     private List<String> years ;
     private List<String> dates;
@@ -53,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
         btAddEvent = findViewById(R.id.idAddEvent);
         btSetTimer = findViewById(R.id.idTimer);
         btShowAllEvents = findViewById(R.id.idShowEvents);
+
+        /*###                ###*/
+        etNotificationTitle = findViewById(R.id.idNotificationTitle);
+        etNotificationMessage = findViewById(R.id.idNotificationMessage);
+        btSendNotification = findViewById(R.id.idNotification_mainAct);
 
         spHour = findViewById(R.id.idHour);
         spMin = findViewById(R.id.idMinute);
@@ -289,6 +308,58 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ShowEvents.class));
+            }
+        });
+
+
+
+        btSendNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final String sTitle = etNotificationTitle.getText().toString().trim();
+                final String sMessage = etNotificationMessage.getText().toString().trim();
+
+                if (sTitle.isEmpty() || sMessage.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Please give title and message for notification", Toast.LENGTH_SHORT).show();
+                }else {
+
+                    StringRequest stringRequest = new StringRequest(StringRequest.Method.POST, SEND_NOTIFICATION_URL,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+
+                                    try {
+                                        JSONObject jsonObject = new JSONObject(response);
+                                        //String serverMessage = jsonObject.getString("message");
+                                        //Toast.makeText(MainActivity.this, ""+serverMessage, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, "ok", Toast.LENGTH_SHORT).show();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d(TAG, "onErrorResponse: "+error);
+                            error.getStackTrace();
+                        }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+
+                            Map<String, String> notificationMap = new HashMap<>();
+                            notificationMap.put("title", sTitle);
+                            notificationMap.put("message", sMessage);
+
+                            return notificationMap;
+                        }
+                    };
+
+                    RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+                    requestQueue.add(stringRequest);
+                }
             }
         });
 

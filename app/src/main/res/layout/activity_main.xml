@@ -1,157 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+
+<ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 
 
-    <TextView
-        android:id="@+id/t3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/idYear"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:text="Year"
-        android:textSize="18dp" />
-
-    <Spinner
-        android:id="@+id/idYear"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/idMonth"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/idMonth"
-        android:layout_marginTop="64dp" />
-
-    <Spinner
-        android:id="@+id/idMonth"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/idDay"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/idDay"
-        android:layout_marginTop="116dp" />
-
-    <TextView
-        android:id="@+id/t2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/t3"
-        android:layout_alignStart="@+id/t3"
-        android:layout_alignTop="@+id/idMonth"
-        android:text="Month"
-        android:textSize="18dp" />
-
-    <Spinner
-        android:id="@+id/idDay"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="29dp"
-        android:layout_marginRight="29dp"
-        android:layout_marginTop="176dp" />
-
-    <EditText
-        android:id="@+id/idEventText"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="207dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:ems="10"
-        android:hint="Enter Event"
-        android:inputType="textPersonName" />
-
-    <Button
-        android:id="@+id/idAddEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/idEventText"
-        android:layout_centerHorizontal="true"
-        android:text="Add Event" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/t3"
-        android:layout_alignStart="@+id/t3"
-        android:layout_alignTop="@+id/idDay"
-        android:text="Date"
-        android:textSize="18dp" />
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical"
+        android:padding="5dp">
 
 
-    <Button
-        android:id="@+id/idTimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="76dp"
-        android:text="Set Timer" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Admin Panel"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="22dp"
+            android:textStyle="bold"/>
 
-    <Spinner
-        android:id="@+id/idHour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/t3"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/t3"
-        android:layout_marginBottom="134dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/t3"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
+                android:text="Year"
+                android:textSize="18dp" />
 
-    <TextView
-        android:id="@+id/hour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/t2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/t2"
-        android:layout_marginBottom="168dp"
-        android:text="hour"
-        android:textSize="16dp" />
+            <Spinner
+                android:id="@+id/idYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/idTimer"
-        android:layout_alignStart="@+id/idTimer"
-        android:layout_alignTop="@+id/hour"
-        android:text="Min"
-        android:textSize="16dp" />
 
-    <Spinner
-        android:id="@+id/idMinute"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/idTimer"
-        android:layout_alignStart="@+id/idTimer"
-        android:layout_alignTop="@+id/idHour" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/t2"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
+                android:text="Month"
+                android:textSize="18dp" />
 
-    <Spinner
-        android:id="@+id/idAmPm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/idHour"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp" />
+            <Spinner
+                android:id="@+id/idMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
-    <Button
-        android:id="@+id/idShowEvents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:text="Show Events" />
-</RelativeLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
+                android:text="Date"
+                android:textSize="18dp" />
+
+            <Spinner
+                android:id="@+id/idDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+
+
+        <EditText
+            android:id="@+id/idEventText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:ems="10"
+            android:hint="Enter Event"
+            android:layout_marginTop="10dp"
+
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/idAddEvent"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/idEventText"
+            android:text="Add Event"
+            android:gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="center"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/hour"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="hour"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Min"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Min"
+                android:textSize="16dp"
+                android:visibility="invisible"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/idHour"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                />
+
+            <Spinner
+                android:id="@+id/idMinute"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                />
+
+            <Spinner
+                android:id="@+id/idAmPm"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/idTimer"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Set Timer" />
+
+
+        <Button
+            android:id="@+id/idShowEvents"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Show Events" />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Notification"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="22dp"
+            android:layout_marginTop="20dp"/>
+        <EditText
+            android:id="@+id/idNotificationTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Notification Title"/>
+
+        <EditText
+            android:id="@+id/idNotificationMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Notification Message"/>
+
+        <Button
+            android:id="@+id/idNotification_mainAct"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+            android:text="Send Notification" />
+    </LinearLayout>
+
+
+
+
+</ScrollView>
+
